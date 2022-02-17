@@ -1,22 +1,30 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonGrid, IonRow, IonCol } from '@ionic/react';
 import './Home.css';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>Mike's Calculator</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+        <IonGrid>
+          <IonRow>
+            {/* Menu */}
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
+          </IonRow>
+          <IonRow className='output'>
+            {/* Output */}
+            <div className='previous-operand'></div>
+            <div className='current-operand'>00</div>
+          </IonRow>
+
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
