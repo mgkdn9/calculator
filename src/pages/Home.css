@@ -36,6 +36,14 @@
   margin: 0 auto;
 }
 
+.grid {
+  grid-template-columns: repeat(4, 16rem);
+}
+
 .yellow-btn {
   background-color: #ffd428;
+}
+
+.btn-zero {
+
 }
