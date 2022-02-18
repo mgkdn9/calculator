@@ -1,0 +1,41 @@
+.content {
+  border-radius: 20px;
+}
+.header {
+  background-color: rgba(103,82,148,255);
+  height: 140px;
+}
+.knotch {
+  margin: 0 auto;
+  background-color: whitesmoke;
+  width: 35%;
+  height: 20px;
+  border-radius: 0 0 15px 15px;
+}
+.dark-purple-line {
+  background-color: rgba(52,37,83,255);
+  height: 15px;
+}
+.main {
+ background-color: rgba(70,49,114,255);
+ height: 689px;
+ padding: 30px;
+}
+.previous-operand {
+  font-size: 4rem;
+  color: whitesmoke;
+}
+.current-operand {
+  font-size: 6rem;
+  color: whitesmoke;
+}
+.white-line {
+  height: 2px;
+  background-color: whitesmoke;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.yellow-btn {
+  background-color: #ffd428;
+}
