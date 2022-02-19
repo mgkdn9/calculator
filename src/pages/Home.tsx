@@ -1,142 +1,31 @@
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonButton,
-} from "@ionic/react";
-import "./Home.css";
+import { IonContent, IonHeader, IonPage,i IonGrid, IonRow, IonCol, IonButton } from '@ionic/react';
+import './Home.css';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonContent fullscreen className="content">
-        <IonHeader className="header">
-          <div className="knotch"></div>
-          <div className="hamburger">
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
+      <IonContent fullscreen className='content'>
+        <IonHeader className='header'>
+          <div className='knotch'></div>
+          <div className='hamburger'>
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
           </div>
         </IonHeader>
-        <IonRow className="dark-purple-line"></IonRow>
-        <div className="main">
-          <div className="output">
-            <div className="previous-operand"></div>
-            <div className="current-operand">00</div>
-            <div className="white-line"></div>
+        <IonRow className='dark-purple-line'>
+
+        </IonRow>
+        <div className='main'>
+          <div className='output'>
+            {/* Output */}
+            <div className='previous-operand'></div>
+            <div className='current-operand'>00</div>
+            <div className='white-line'></div>
           </div>
-          <IonGrid className="grid">
+          <IonGrid>
             <IonRow>
-              <IonCol>
-                <IonButton fill="outline" shape="round">
-                  C
-                </IonButton>
-              </IonCol>
-              <IonCol>{/* blank space */}</IonCol>
-              <IonCol>
-                <IonButton color="warning" shape="round">
-                  /
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="warning" shape="round">
-                  *
-                </IonButton>
-              </IonCol>
-            </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  7
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  8
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  9
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="warning" shape="round">
-                  -
-                </IonButton>
-              </IonCol>
-            </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  4
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  5
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="light" fill="outline" shape="round">
-                  6
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color="warning" shape="round">
-                  +
-                </IonButton>
-              </IonCol>
-            </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonGrid>
-                  <IonRow>
-                    <IonCol>
-                      <IonButton color="light" fill="outline" shape="round">
-                        1
-                      </IonButton>
-                    </IonCol>
-                    <IonCol>
-                      <IonButton color="light" fill="outline" shape="round">
-                        2
-                      </IonButton>
-                    </IonCol>
-                  </IonRow>
-                  <IonRow>
-                    <IonCol>
-                      <IonButton
-                        color="light"
-                        fill="outline"
-                        expand="block"
-                        shape="round"
-                      >
-                        0
-                      </IonButton>
-                    </IonCol>
-                  </IonRow>
-                </IonGrid>
-              </IonCol>
-              <IonCol>
-                <IonGrid>
-                  <IonRow>
-                    <IonButton color="light" fill="outline" shape="round">
-                      3
-                    </IonButton>
-                  </IonRow>
-                  <IonRow>
-                    <IonButton color="light" fill="outline" shape="round">
-                      .
-                    </IonButton>
-                  </IonRow>
-                </IonGrid>
-              </IonCol>
-              <IonCol>
-                <IonButton color="warning" shape="round">=</IonButton>
-              </IonCol>
+              <IonButton shape="round">C</IonButton>
             </IonRow>
           </IonGrid>
         </div>

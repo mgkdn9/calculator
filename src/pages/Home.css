@@ -36,14 +36,13 @@
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .grid {
   /* grid-template-columns: repeat(4, 16rem); */
 }
 
+=======
+>>>>>>> parent of 5cae519... made zero take 2 columns. got further on styling
 .yellow-btn {
   background-color: #ffd428;
-}
-
-.btn-zero {
-
 }
