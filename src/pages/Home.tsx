@@ -9,6 +9,14 @@ import {
 } from "@ionic/react";
 import "./Home.css";
 
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
 const Home: React.FC = () => {
   return (
     <IonPage>
@@ -31,68 +39,103 @@ const Home: React.FC = () => {
           <IonGrid className="grid">
             <IonRow>
               <IonCol>
-                <IonButton fill='outline' shape="round">C</IonButton>
+                <IonButton fill="outline" shape="round">
+                  C
+                </IonButton>
+              </IonCol>
+              <IonCol></IonCol>
+              <IonCol>
+                <IonButton color="warning" shape="round">
+                  /
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton className="clear"></IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton shape="round">/</IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton shape="round">*</IonButton>
-              </IonCol>
-            </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonButton color='light' fill='outline' shape="round">7</IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color='light' fill='outline' shape="round">8</IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton color='light' fill='outline' shape="round">9</IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton shape="round">-</IonButton>
+                <IonButton color="warning" shape="round">
+                  *
+                </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">4</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  7
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">5</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  8
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">6</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  9
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton shape="round">+</IonButton>
+                <IonButton color="warning" shape="round">
+                  -
+                </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">1</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  4
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">2</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  5
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">3</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  6
+                </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton shape="round">=</IonButton>
+                <IonButton color="warning" shape="round">
+                  +
+                </IonButton>
+              </IonCol>
+            </IonRow>
+            <IonRow>
+              <IonCol>
+                <IonButton color="light" fill="outline" shape="round">
+                  1
+                </IonButton>
+              </IonCol>
+              <IonCol>
+                <IonButton color="light" fill="outline" shape="round">
+                  2
+                </IonButton>
+              </IonCol>
+              <IonCol>
+                <IonButton color="light" fill="outline" shape="round">
+                  3
+                </IonButton>
+              </IonCol>
+              <IonCol>
+                <IonButton color="warning" shape="round">
+                  =
+                </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol size="6">
-                <IonButton color='light' fill='outline' expand='block' shape="round">
+                <IonButton
+                  color="light"
+                  fill="outline"
+                  expand="block"
+                  shape="round"
+                >
                   0
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton color='light' fill='outline' shape="round">.</IonButton>
+                <IonButton color="light" fill="outline" shape="round">
+                  .
+                </IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>

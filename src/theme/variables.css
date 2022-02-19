@@ -75,13 +75,13 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
-
 @media (prefers-color-scheme: dark) {
   /*
-   * Dark Colors
-   * -------------------------------------------
-   */
-
+  * Dark Colors
+  * -------------------------------------------
+  */
+  
+  
   body {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
@@ -139,12 +139,13 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-medium-shade: #86888f;
     --ion-color-medium-tint: #a2a4ab;
 
+    /* Took this out because it looks bad when my machine turns to dark mode at night
     --ion-color-light: #222428;
     --ion-color-light-rgb: 34,36,40;
     --ion-color-light-contrast: #ffffff;
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
-    --ion-color-light-tint: #383a3e;
+    --ion-color-light-tint: #383a3e; */
   }
 
   /*
@@ -233,4 +234,4 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-card-background: #1e1e1e;
   }
-}
+} 
