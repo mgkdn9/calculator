@@ -1,13 +1,5 @@
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonButton,
-} from "@ionic/react";
-import "./Home.css";
+import { IonContent, IonHeader, IonPage, IonGrid, IonRow, IonCol, IonButton } from '@ionic/react';
+import './Home.css';
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -20,21 +12,24 @@ import "@ionic/react/css/typography.css";
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonContent fullscreen className="content">
-        <IonHeader className="header">
-          <div className="knotch"></div>
-          <div className="hamburger">
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
+      <IonContent fullscreen className='content'>
+        <IonHeader className='header'>
+          <div className='knotch'></div>
+          <div className='hamburger'>
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
+            <div className='menu-bar'></div>
           </div>
         </IonHeader>
-        <IonRow className="dark-purple-line"></IonRow>
-        <div className="main">
-          <div className="output">
-            <div className="previous-operand"></div>
-            <div className="current-operand">00</div>
-            <div className="white-line"></div>
+        <IonRow className='dark-purple-line'>
+
+        </IonRow>
+        <div className='main'>
+          <div className='output'>
+            {/* Output */}
+            <div className='previous-operand'></div>
+            <div className='current-operand'>00</div>
+            <div className='white-line'></div>
           </div>
           <IonGrid className="grid">
             <IonRow>
