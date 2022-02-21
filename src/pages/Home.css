@@ -36,8 +36,11 @@
   margin: 0 auto;
 }
 
-.grid {
-  grid-template-columns: repeat(4, 6rem);
+.ionButton {
+  cursor: pointer;
+  /* font-size: 1.5rem;
+  padding: 5px;
+  margin: 2px; */
 }
 
 .yellow-btn {
