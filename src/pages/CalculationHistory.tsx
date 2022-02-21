@@ -1,4 +1,4 @@
-import { IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonMenuButton } from "@ionic/react"
+import { IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonMenuButton, IonList, IonItem, IonText } from "@ionic/react"
 
 const CalculationHistory: React.FC<{history:any[]}> = ({history}:any) => {
   return (
@@ -10,7 +10,9 @@ const CalculationHistory: React.FC<{history:any[]}> = ({history}:any) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {history}
+        <IonList>
+          {history.map((calculation:string, index:number) => <IonItem key={index}><IonText>{calculation}</IonText></IonItem>)}
+        </IonList>
       </IonContent>
     </IonPage>
   )

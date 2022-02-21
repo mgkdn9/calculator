@@ -20,7 +20,7 @@ import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 
-const Home: React.FC = () => {
+const Home: React.FC<{history:any[]}> = ({history}:any) => {
   const [operand, setOperand] = useState(""); //state for number currently writing to
   const [runningTotal, setRunningTotal] = useState(""); //state for number being added to/subtracted from/multiplied by/divided by
   const [operation, setOperation] = useState(""); //state for operation selected (only ever holds +, -, *, or /)
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
 
   const addDigit = (e: any) => {
     setCalcComplete(false)
-    if (operand === "Must enter a number!" || operand === "0" || calcComplete) {
+    if (operand === "0" || calcComplete) {
       setOperand(e.target.innerText); //replace initial zero or whole operand if they just hit equals prior to digit
     } else if (operand.includes(".") && e.target.innerText === ".") {
       return; //do nothing if they enter a second decimal point
@@ -38,8 +38,8 @@ const Home: React.FC = () => {
     }
   };
   const chooseOperation = (e: any) => {
-    if (operand === "0" && runningTotal === "") {
-      return; //do nothing if they hit an operation with no operands
+    if (operand === "" && runningTotal === "") {
+      return//do nothing if they hit an operation with no operands
     } else if (runningTotal === "") {
       //after they put in operand and press +/-///* move operand to runningTotal
       setOperation(e.target.innerText);
@@ -72,14 +72,15 @@ const Home: React.FC = () => {
         result = (fRunningTotal / fOperand).toString();
         break;
     }
+    
     return result;
   };
   const equals = () => {
     if (operand === "" || operation === "" || runningTotal === "") {
-      return; //do nothing if we don't have 3 pieces of data we need
+      return//do nothing if we don't have 3 pieces of data we need
     } else {
-      setRunningTotal("");
-      setOperation("");
+      setRunningTotal('');
+      setOperation('');
       setOperand(evaluate());
       setCalcComplete(true);
     }

@@ -29,7 +29,8 @@ setupIonicReact();
 
 const App: React.FC = () => {
 
-  const [history, setHistory] = useState(['2 + 2 = 4','5 * 5 = 25'])//state for past calculations
+  const [history, setHistory] = useState(['2 + 2 = 4','5 * 5 = 25','10 + 5 = 15'])//state for past calculations
+  // const [history, setHistory] = useState([])//state for past calculations
 
   return (
     <IonApp>
@@ -37,7 +38,7 @@ const App: React.FC = () => {
         <Menu />
         <IonRouterOutlet id="main">
           <Route exact path="/home">
-            <Home />
+            <Home history={history}/>
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
