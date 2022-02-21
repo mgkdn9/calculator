@@ -19,28 +19,11 @@ import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 
-// Specify only certain operations that can change state
-function reducer(
-  state: { currentOperand: string; previousOperand: string; operation: string },
-  action: { action: string; parameters: any }
-) {
-  switch (action.action) {
-    case "ADD_DIGIT":
-      return {
-        ...state,
-        currentOperand: `${state.currentOperand || ""}${
-          action.parameters.digit
-        }`,
-      };
-  }
-}
-
 const Home: React.FC = () => {
-  // const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer<any>(reducer, {})
-  // const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer<(prevState: any, action: any)=>any>(reducer, {})
-  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer<
-    (prevState: any, action: any) => any
-  >(reducer, {});
+  
+  const [operand, setOperand] = useState('0')         //state for number currently writing to
+  const [runningTotal, setRunningTotal] = useState('')//state for number being added to/subtracted from/multiplied by/divided by
+  const [operation, setOperation] = useState('')      //state for operation selected (only ever holds +, -, *, or /)
 
   return (
     <IonPage>
@@ -58,9 +41,9 @@ const Home: React.FC = () => {
           <div className="output">
             {/* Output */}
             <div className="previous-operand">
-              {previousOperand} {operation}
+              {runningTotal} {operation}
             </div>
-            <div className="current-operand">{currentOperand}</div>
+            <div className="current-operand">{operand}</div>
             <div className="white-line"></div>
           </div>
           <IonGrid>
@@ -85,21 +68,14 @@ const Home: React.FC = () => {
             </IonRow>
             <IonRow>
               <IonCol>
-                {/* <IonButton
+                <IonButton
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
                   7
-                </IonButton> */}
-                <DigitButton
-                  digit="7"
-                  dispatch={dispatch}
-                  currentOperand={currentOperand}
-                  previousOperand={previousOperand}
-                  operation={operation}
-                />
+                </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
