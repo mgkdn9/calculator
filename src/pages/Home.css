@@ -21,12 +21,14 @@
  height: 689px;
  padding: 30px;
 }
-.previous-operand {
+.runningTotal {
   font-size: 4rem;
+  min-height: 4rem;
   color: whitesmoke;
 }
-.current-operand {
+.operand {
   font-size: 6rem;
+  min-height: 6rem;
   color: whitesmoke;
 }
 .white-line {
