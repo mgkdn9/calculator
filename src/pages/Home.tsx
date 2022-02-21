@@ -7,6 +7,8 @@ import {
   IonRow,
   IonCol,
   IonButton,
+  IonMenuButton,
+  IonToolbar,
 } from "@ionic/react";
 import "./Home.css";
 
@@ -19,87 +21,84 @@ import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 
 const Home: React.FC = () => {
-  const [operand, setOperand] = useState(''); //state for number currently writing to
-  const [runningTotal, setRunningTotal] = useState(''); //state for number being added to/subtracted from/multiplied by/divided by
+  const [operand, setOperand] = useState(""); //state for number currently writing to
+  const [runningTotal, setRunningTotal] = useState(""); //state for number being added to/subtracted from/multiplied by/divided by
   const [operation, setOperation] = useState(""); //state for operation selected (only ever holds +, -, *, or /)
-  const [calcComplete, setCalcComplete] = useState(false)//state for equals sign having been just pressed
+  const [calcComplete, setCalcComplete] = useState(false); //state for equals sign having been just pressed
 
   const addDigit = (e: any) => {
-    if( operand === "Must enter a number!" || operand=== '0' || calcComplete ){
-      setOperand(e.target.innerText);//replace initial zero or whole operand if they just hit equals prior to digit
-    }
-    else if( operand.includes('.') && e.target.innerText==='.' ){
-      return//do nothing if they enter a second decimal point
-    } else {//normal operation is to concatenate new digit onto operand
+    setCalcComplete(false)
+    if (operand === "Must enter a number!" || operand === "0" || calcComplete) {
+      setOperand(e.target.innerText); //replace initial zero or whole operand if they just hit equals prior to digit
+    } else if (operand.includes(".") && e.target.innerText === ".") {
+      return; //do nothing if they enter a second decimal point
+    } else {
+      //normal operation is to concatenate new digit onto operand
       setOperand(operand + e.target.innerText);
     }
-  }
-  const chooseOperation = (e:any) => {
-    if(operand==='0' && runningTotal===''){
-      return//do nothing if they hit an operation with no operands
+  };
+  const chooseOperation = (e: any) => {
+    if (operand === "0" && runningTotal === "") {
+      return; //do nothing if they hit an operation with no operands
+    } else if (runningTotal === "") {
+      //after they put in operand and press +/-///* move operand to runningTotal
+      setOperation(e.target.innerText);
+      setRunningTotal(operand);
+      setOperand("");
+    } else if (operand === "") {
+      setOperation(e.target.innerText);
+    } else {
+      //If they pass all previous if stmts, perform calculation
+      setOperation(e.target.innerText);
+      setRunningTotal(evaluate());
+      setOperand("");
     }
-    else if(runningTotal===''){//after they put in operand and press +/-///* move operand to runningTotal
-      setOperation(e.target.innerText)
-      setRunningTotal(operand)
-      setOperand('')
-    }
-    else if(operand===''){
-      setOperation(e.target.innerText)
-    }
-    else {//If they pass all previous if stmts, perform calculation
-      setOperation(e.target.innerText)
-      setRunningTotal(evaluate())
-      setOperand('')
-    }
-  }
+  };
   const evaluate = () => {
-    const fRunningTotal = parseFloat(runningTotal)
-    const fOperand = parseFloat(operand)//convert to floats to do math
-    let result = ''
-    switch( operation ){
-      case '+':
-        result = (fRunningTotal + fOperand).toString()
-        break
-      case '-':
-        result = (fRunningTotal - fOperand).toString()
-        break
-      case '*':
-        result = (fRunningTotal * fOperand).toString()
-        break
-      case '/':
-        result = (fRunningTotal / fOperand).toString()
-        break
+    const fRunningTotal = parseFloat(runningTotal);
+    const fOperand = parseFloat(operand); //convert to floats to do math
+    let result = "";
+    switch (operation) {
+      case "+":
+        result = (fRunningTotal + fOperand).toString();
+        break;
+      case "-":
+        result = (fRunningTotal - fOperand).toString();
+        break;
+      case "*":
+        result = (fRunningTotal * fOperand).toString();
+        break;
+      case "/":
+        result = (fRunningTotal / fOperand).toString();
+        break;
     }
-    return result
-  }
+    return result;
+  };
   const equals = () => {
-    if( operand==='' || operation==='' || runningTotal==='' ){
-      return//do nothing if we don't have 3 pieces of data we need
+    if (operand === "" || operation === "" || runningTotal === "") {
+      return; //do nothing if we don't have 3 pieces of data we need
+    } else {
+      setRunningTotal("");
+      setOperation("");
+      setOperand(evaluate());
+      setCalcComplete(true);
     }
-    else {
-      setRunningTotal('')
-      setOperation('')
-      setOperand(evaluate())
-      setCalcComplete(true)
-    }
-  }
+  };
   const clear = () => {
-    setOperand('')
-    setRunningTotal('')
-    setOperation('')
-    setCalcComplete(false)
-  }
+    setOperand("");
+    setRunningTotal("");
+    setOperation("");
+    setCalcComplete(false);
+  };
   return (
     <IonPage>
-      <IonContent fullscreen className="content">
-        <IonHeader className="header">
-          <div className="knotch"></div>
-          <div className="hamburger">
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
-            <div className="menu-bar"></div>
-          </div>
-        </IonHeader>
+      <IonHeader className="header">
+        <div className="knotch"></div>
+        <IonToolbar>
+          <IonMenuButton></IonMenuButton>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
         <IonRow className="dark-purple-line"></IonRow>
         <div className="main">
           <div className="output">
@@ -113,19 +112,34 @@ const Home: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol>
-                <IonButton onClick={clear} className="ionButton" fill="outline" shape="round">
+                <IonButton
+                  onClick={clear}
+                  className="ionButton"
+                  fill="outline"
+                  shape="round"
+                >
                   C
                 </IonButton>
               </IonCol>
               <IonCol></IonCol>
               {/* blank space */}
               <IonCol>
-                <IonButton onClick={(e) => chooseOperation(e)} className="ionButton" color="warning" shape="round">
+                <IonButton
+                  onClick={(e) => chooseOperation(e)}
+                  className="ionButton"
+                  color="warning"
+                  shape="round"
+                >
                   /
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton onClick={(e) => chooseOperation(e)} className="ionButton" color="warning" shape="round">
+                <IonButton
+                  onClick={(e) => chooseOperation(e)}
+                  className="ionButton"
+                  color="warning"
+                  shape="round"
+                >
                   *
                 </IonButton>
               </IonCol>
@@ -165,7 +179,12 @@ const Home: React.FC = () => {
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton onClick={(e) => chooseOperation(e)} className="ionButton" color="warning" shape="round">
+                <IonButton
+                  onClick={(e) => chooseOperation(e)}
+                  className="ionButton"
+                  color="warning"
+                  shape="round"
+                >
                   -
                 </IonButton>
               </IonCol>
@@ -205,7 +224,12 @@ const Home: React.FC = () => {
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton onClick={(e) => chooseOperation(e)} className="ionButton" color="warning" shape="round">
+                <IonButton
+                  onClick={(e) => chooseOperation(e)}
+                  className="ionButton"
+                  color="warning"
+                  shape="round"
+                >
                   +
                 </IonButton>
               </IonCol>
@@ -245,7 +269,12 @@ const Home: React.FC = () => {
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton onClick={equals} className="ionButton" color="warning" shape="round">
+                <IonButton
+                  onClick={equals}
+                  className="ionButton"
+                  color="warning"
+                  shape="round"
+                >
                   =
                 </IonButton>
               </IonCol>
