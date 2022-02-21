@@ -1,12 +1,12 @@
 import React from 'react'
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonRouterOutlet, IonPage, IonMenuButton, IonButton } from '@ionic/react';
+import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from '@ionic/react';
 
 const Menu: React.FC = () => {
   return (
     
     <IonMenu contentId='main' side="start">
       <IonHeader>
-        <IonToolbar color="primary">
+        <IonToolbar color="dark">
           <IonTitle>Start Menu</IonTitle>
         </IonToolbar>
       </IonHeader>

@@ -1,5 +1,10 @@
+:root {
+  --light-purple: rgba(103,82,148,255);
+  --medium-purple: rgba(70,49,114,255);
+}
+
 .header {
-  background-color: rgba(103,82,148,255);
+  background-color: var(--light-purple);
   height: 140px;
 }
 .knotch {
@@ -9,12 +14,16 @@
   height: 20px;
   border-radius: 0 0 15px 15px;
 }
+.toolbar {
+  --background: var(--light-purple);
+  --color: whitesmoke;
+}
 .dark-purple-line {
   background-color: rgba(52,37,83,255);
   height: 15px;
 }
 .main {
- background-color: rgba(70,49,114,255);
+ background-color: var(--medium-purple);
  height: 689px;
  padding: 30px;
 }

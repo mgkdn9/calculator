@@ -94,8 +94,8 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader className="header">
         <div className="knotch"></div>
-        <IonToolbar>
-          <IonMenuButton></IonMenuButton>
+        <IonToolbar className="toolbar">
+          <IonMenuButton slot="start"></IonMenuButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

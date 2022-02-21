@@ -15,6 +15,7 @@
 ### make white line at bottom
 ### make clear button the right colors
 ### make all buttons circular
+### make so first digit doesn't affect size of its container
 ### get equals button to do 2 rows
 ### make buttons into react components for DRYer code
 ### make everything the right color when input extends past first row
