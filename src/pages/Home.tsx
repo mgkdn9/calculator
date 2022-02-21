@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   const [operand, setOperand] = useState(''); //state for number currently writing to
   const [runningTotal, setRunningTotal] = useState(''); //state for number being added to/subtracted from/multiplied by/divided by
   const [operation, setOperation] = useState(""); //state for operation selected (only ever holds +, -, *, or /)
-  const [calcComplete, setCalcComplete] = useState(false)
+  const [calcComplete, setCalcComplete] = useState(false)//state for equals sign having been just pressed
 
   const addDigit = (e: any) => {
     if( operand === "Must enter a number!" || operand=== '0' || calcComplete ){
@@ -30,9 +30,6 @@ const Home: React.FC = () => {
     }
     else if( operand.includes('.') && e.target.innerText==='.' ){
       return//do nothing if they enter a second decimal point
-    // }
-    // else if( calcComplete ){
-    //   setOperand(e.target.innerText)
     } else {//normal operation is to concatenate new digit onto operand
       setOperand(operand + e.target.innerText);
     }
@@ -86,14 +83,6 @@ const Home: React.FC = () => {
       setCalcComplete(true)
     }
   }
-  // const plus = (e:any) => {
-  //   setOperation('+')
-  //   if(operand==='0'){
-  //     return
-  //   } else {
-  //     setRunningTotal(runningTotal)
-  //   }
-  // }
   const clear = () => {
     setOperand('')
     setRunningTotal('')
