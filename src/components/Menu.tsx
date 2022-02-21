@@ -1,10 +1,18 @@
-import React from 'react'
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from '@ionic/react';
+import React from "react";
+import {
+  IonMenu,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonRouterLink,
+} from "@ionic/react";
 
 const Menu: React.FC = () => {
   return (
-    
-    <IonMenu contentId='main' side="start">
+    <IonMenu contentId="main" side="start">
       <IonHeader>
         <IonToolbar color="dark">
           <IonTitle>Start Menu</IonTitle>
@@ -12,14 +20,16 @@ const Menu: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
+          <IonItem>
+            <IonRouterLink href="/home">Home</IonRouterLink>
+          </IonItem>
+          <IonItem>
+            <IonRouterLink href="/history">Calculation History</IonRouterLink>
+          </IonItem>
+          <IonItem>Change Theme (nonfunctional)</IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
-  )
-}
-export default Menu
+  );
+};
+export default Menu;
