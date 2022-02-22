@@ -18,5 +18,5 @@
 ### get equals button to be 2 rows
 ### make buttons into react components for DRYer code
 ### make everything the right color when input extends past first row
-### make everything the right type (not just 'any')
-### make work on landscape orientation
+### make everything a strict type (not just 'any')
+### landscape orientation

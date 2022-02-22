@@ -2,10 +2,9 @@
   /* --ion-grid-padding: 0px;
   --ion-padding: 0px;
   --ion-grid-column-padding: 0px; */
-  --light-purple: rgba(103,82,148,255);
-  --medium-purple: rgba(70,49,114,255);
+  --light-purple: rgba(103, 82, 148, 255);
+  --medium-purple: rgba(70, 49, 114, 255);
 }
-
 .header {
   background-color: var(--light-purple);
   height: 140px;
@@ -22,13 +21,13 @@
   --color: whitesmoke;
 }
 .dark-purple-line {
-  background-color: rgba(52,37,83,255);
+  background-color: rgba(52, 37, 83, 255);
   height: 15px;
 }
 .main {
- background-color: var(--medium-purple);
- height: 689px;
- padding: 30px;
+  background-color: var(--medium-purple);
+  height: 689px;
+  padding: 30px;
 }
 .running-total {
   font-size: 4rem;
@@ -48,7 +47,6 @@
   width: 100%;
   margin: 0 auto;
 }
-
 .ionButton {
   cursor: pointer;
   font-size: 1.5rem;
@@ -60,9 +58,6 @@
   margin: 2px; */
 }
 .clear-button {
-  border-color: whitesmoke;
-}
-
-.yellow-btn {
-  background-color: #ffd428;
+  /* --color: #eee;
+  color: var(--color); */
 }
