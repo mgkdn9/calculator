@@ -9,11 +9,6 @@
   background-color: var(--light-purple);
   min-height: 140px;
 }
-@media screen and (orientation:landscape){
-  .header {
-    min-height: 30px;
-  }
-}
 .knotch {
   margin: 0 auto;
   background-color: whitesmoke;
@@ -65,4 +60,31 @@
 .clear-button {
   /* --color: #eee;
   color: var(--color); */
+}
+
+@media screen and (orientation:landscape){
+  .header {
+    min-height: 0px;
+  }
+  .main {
+    padding-top: 1px;
+    /* text-align: center; */
+  }
+  .running-total {
+    font-size: 2rem;
+    min-height: 2rem;
+  }
+  .operand {
+    font-size: 3rem;
+    min-height: 3rem;
+  }
+  .dark-purple-line {
+    height: 5px;
+  }
+  .ionButton {
+    height: 30px;
+  }
+  .knotch {
+    display: none;
+  }
 }
