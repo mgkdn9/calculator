@@ -1,4 +1,7 @@
 :root {
+  /* --ion-grid-padding: 0px;
+  --ion-padding: 0px;
+  --ion-grid-column-padding: 0px; */
   --light-purple: rgba(103,82,148,255);
   --medium-purple: rgba(70,49,114,255);
 }
@@ -27,15 +30,17 @@
  height: 689px;
  padding: 30px;
 }
-.runningTotal {
+.running-total {
   font-size: 4rem;
   min-height: 4rem;
   color: whitesmoke;
+  text-align: right;
 }
 .operand {
   font-size: 6rem;
   min-height: 6rem;
   color: whitesmoke;
+  text-align: right;
 }
 .white-line {
   height: 2px;
@@ -46,9 +51,16 @@
 
 .ionButton {
   cursor: pointer;
-  /* font-size: 1.5rem;
-  padding: 5px;
+  font-size: 1.5rem;
+  /* --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-start: 0; */
+  /* padding: 5px;
   margin: 2px; */
+}
+.clear-button {
+  border-color: whitesmoke;
 }
 
 .yellow-btn {

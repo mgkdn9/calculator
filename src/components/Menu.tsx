@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" side="start">
       <IonHeader>
         <IonToolbar color="dark">
-          <IonTitle>Start Menu</IonTitle>
+          <IonTitle>Calculator Menu</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

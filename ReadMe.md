@@ -7,16 +7,16 @@
 ### run 'npm i' to install all dependencies
 ### run 'ionic serve' to start the application in the browser
 ### in the browser, right click and click 'Inspect'
-### set the device as iPhone 12 Pro (Cmd/Ctrl + Shift + M then select iPhone 12 Pro)
+### set the device as Pixel 5 (Cmd/Ctrl + Shift + M then select Pixel 5)
 
 ## To do
-### make hamburger menu open to show (toggle dark mode, calculation history, )
-### make division sign correct symbol
+### get states to not reinitialize whenever I change routes
+### dark mode
 ### make white line at bottom
 ### make clear button the right colors
-### make all buttons circular
 ### make so first digit doesn't affect size of its container
-### get equals button to do 2 rows
+### get equals button to be 2 rows
 ### make buttons into react components for DRYer code
 ### make everything the right color when input extends past first row
 ### make everything the right type (not just 'any')
+### make work on landscape orientation

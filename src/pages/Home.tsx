@@ -20,77 +20,23 @@ import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 
-const Home: React.FC<{history:any[]}> = ({history}:any) => {
-  const [operand, setOperand] = useState(""); //state for number currently writing to
-  const [runningTotal, setRunningTotal] = useState(""); //state for number being added to/subtracted from/multiplied by/divided by
-  const [operation, setOperation] = useState(""); //state for operation selected (only ever holds +, -, *, or /)
-  const [calcComplete, setCalcComplete] = useState(false); //state for equals sign having been just pressed
-
-  const addDigit = (e: any) => {
-    setCalcComplete(false)
-    if (operand === "0" || calcComplete) {
-      setOperand(e.target.innerText); //replace initial zero or whole operand if they just hit equals prior to digit
-    } else if (operand.includes(".") && e.target.innerText === ".") {
-      return; //do nothing if they enter a second decimal point
-    } else {
-      //normal operation is to concatenate new digit onto operand
-      setOperand(operand + e.target.innerText);
-    }
-  };
-  const chooseOperation = (e: any) => {
-    if (operand === "" && runningTotal === "") {
-      return//do nothing if they hit an operation with no operands
-    } else if (runningTotal === "") {
-      //after they put in operand and press +/-///* move operand to runningTotal
-      setOperation(e.target.innerText);
-      setRunningTotal(operand);
-      setOperand("");
-    } else if (operand === "") {
-      setOperation(e.target.innerText);
-    } else {
-      //If they pass all previous if stmts, perform calculation
-      setOperation(e.target.innerText);
-      setRunningTotal(evaluate());
-      setOperand("");
-    }
-  };
-  const evaluate = () => {
-    const fRunningTotal = parseFloat(runningTotal);
-    const fOperand = parseFloat(operand); //convert to floats to do math
-    let result = "";
-    switch (operation) {
-      case "+":
-        result = (fRunningTotal + fOperand).toString();
-        break;
-      case "-":
-        result = (fRunningTotal - fOperand).toString();
-        break;
-      case "*":
-        result = (fRunningTotal * fOperand).toString();
-        break;
-      case "/":
-        result = (fRunningTotal / fOperand).toString();
-        break;
-    }
-    
-    return result;
-  };
-  const equals = () => {
-    if (operand === "" || operation === "" || runningTotal === "") {
-      return//do nothing if we don't have 3 pieces of data we need
-    } else {
-      setRunningTotal('');
-      setOperation('');
-      setOperand(evaluate());
-      setCalcComplete(true);
-    }
-  };
-  const clear = () => {
-    setOperand("");
-    setRunningTotal("");
-    setOperation("");
-    setCalcComplete(false);
-  };
+const Home: React.FC<{
+  addDigit: any;
+  chooseOperation: any;
+  equals: any;
+  clear: any;
+  operand: string;
+  runningTotal: string;
+  operation: string;
+}> = ({
+  addDigit,
+  chooseOperation,
+  equals,
+  clear,
+  operand,
+  runningTotal,
+  operation,
+}: any) => {
   return (
     <IonPage>
       <IonHeader className="header">
@@ -104,7 +50,7 @@ const Home: React.FC<{history:any[]}> = ({history}:any) => {
         <div className="main">
           <div className="output">
             {/* Output */}
-            <div className="runningTotal">
+            <div className="running-total">
               {runningTotal} {operation}
             </div>
             <div className="operand">{operand}</div>
@@ -114,175 +60,193 @@ const Home: React.FC<{history:any[]}> = ({history}:any) => {
             <IonRow>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={clear}
-                  className="ionButton"
+                  className="ionButton clear-button"
+                  color="warning"
                   fill="outline"
                   shape="round"
                 >
-                  C
+                  <strong>C</strong>
                 </IonButton>
               </IonCol>
               <IonCol></IonCol>
               {/* blank space */}
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => chooseOperation(e)}
                   className="ionButton"
                   color="warning"
                   shape="round"
                 >
-                  /
+                  <strong>÷</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => chooseOperation(e)}
                   className="ionButton"
                   color="warning"
                   shape="round"
                 >
-                  *
+                  <strong>X</strong>
                 </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
                 <IonButton
+                  mode="md"
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  7
+                  <strong>7</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  8
+                  <strong>8</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  9
+                  <strong>9</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => chooseOperation(e)}
                   className="ionButton"
                   color="warning"
                   shape="round"
                 >
-                  -
+                  <strong>-</strong>
                 </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  4
+                  <strong>4</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  5
+                  <strong>5</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  6
+                  <strong>6</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => chooseOperation(e)}
                   className="ionButton"
                   color="warning"
                   shape="round"
                 >
-                  +
+                  <strong>+</strong>
                 </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  1
+                  <strong>1</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  2
+                  <strong>2</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  3
+                  <strong>3</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={equals}
                   className="ionButton"
                   color="warning"
                   shape="round"
                 >
-                  =
+                  <strong>=</strong>
                 </IonButton>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol size="6">
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
@@ -290,18 +254,19 @@ const Home: React.FC<{history:any[]}> = ({history}:any) => {
                   expand="block"
                   shape="round"
                 >
-                  0
+                  <strong>0</strong>
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton
+                  size="large"
                   onClick={(e) => addDigit(e)}
                   className="ionButton"
                   color="light"
                   fill="outline"
                   shape="round"
                 >
-                  .
+                  <strong>.</strong>
                 </IonButton>
               </IonCol>
             </IonRow>
