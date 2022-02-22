@@ -11,10 +11,9 @@
 
 ## To do
 ### get states to not reinitialize whenever I change routes
-### dark mode
+### dark mode (won't work unless I can get state to not reinitialize)
 ### make white line at bottom
 ### make clear button the right colors
 ### make so first digit doesn't affect size of its container
 ### get equals button to be 2 rows
 ### make buttons into react components for DRYer code
-### landscape orientation

@@ -64,10 +64,12 @@
 
 @media screen and (orientation:landscape){
   .header {
-    min-height: 0px;
+    min-height: 0;
   }
   .main {
     padding-top: 1px;
+    padding-bottom: 1px;
+    min-height: 0;
     /* text-align: center; */
   }
   .running-total {
@@ -82,7 +84,7 @@
     height: 5px;
   }
   .ionButton {
-    height: 30px;
+    height: 28px;
   }
   .knotch {
     display: none;
