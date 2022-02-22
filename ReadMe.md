@@ -17,6 +17,4 @@
 ### make so first digit doesn't affect size of its container
 ### get equals button to be 2 rows
 ### make buttons into react components for DRYer code
-### make everything the right color when input extends past first row
-### make everything a strict type (not just 'any')
 ### landscape orientation

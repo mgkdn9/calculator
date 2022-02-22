@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -85,7 +85,10 @@ const App: React.FC = () => {
         result = (fRunningTotal / fOperand).toFixed(4).toString();
         break;
     }
-    setHistory([...history,`${runningTotal} ${operation} ${operand} = ${result}`])
+    setHistory([
+      ...history,
+      `${runningTotal} ${operation} ${operand} = ${result}`,
+    ]);
     console.log(history);
     return result;
   };
@@ -108,7 +111,15 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      <IonReactRouter>
+      <IonReactRouter
+      // operand={operand}
+      // runningTotal={runningTotal}
+      // operation={operation}
+      // addDigit={addDigit}
+      // chooseOperation={chooseOperation}
+      // equals={equals}
+      // clear={clear}
+      >
         <Menu />
         <IonRouterOutlet id="main">
           <Route exact path="/home">
@@ -122,9 +133,35 @@ const App: React.FC = () => {
               clear={clear}
             />
           </Route>
+          {/* <Route
+            path="/home"
+            render={(
+              operand: any,
+              runningTotal: any,
+              operation: any,
+              addDigit: any,
+              chooseOperation: any,
+              equals: any,
+              clear: any
+            ) => (
+              <Home
+                operand={operand}
+                runningTotal={runningTotal}
+                operation={operation}
+                addDigit={addDigit}
+                chooseOperation={chooseOperation}
+                equals={equals}
+                clear={clear}
+              />
+            )}
+          /> */}
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
+          {/* <Route
+            path="/history"
+            render={(history) => <CalculationHistory history={history} />}
+          /> */}
           <Route exact path="/history">
             <CalculationHistory history={history} />
           </Route>
